@@ -1,0 +1,23 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/test.yaml"
+
+jobs:
+  unit_test:
+    runs-on: ubuntu-latest
+    name: Unit Test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.1.20
+      - name: Install Dependencies
+        run: bun install
+      - name: Run tests
+        run: bun run test
+
