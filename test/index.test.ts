@@ -1,6 +1,7 @@
 import { env } from "cloudflare:test"
 import { expect, test } from "vitest"
 import app from "../src"
+// comment
 
 test("Get user without Auth", async () => {
   const res = await app.request(
